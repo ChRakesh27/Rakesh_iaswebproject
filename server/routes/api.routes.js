@@ -1,8 +1,8 @@
-const adminRouter = require("../controller/admin.controller")
+const questionsRouter = require("../controller/question.controller")
 const express = require("express")
 
 const router = express.Router()
 
-router.use('/admin', adminRouter)
+router.use('/questions', questionsRouter)
 
 module.exports = router;

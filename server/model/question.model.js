@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const Schema = mongoose.Schema
 
-const adminSchema = new Schema({
+const questionsSchema = new Schema({
     _id: { type: mongoose.Types.ObjectId, auto: true },
     title: { type: String, required: true },
     question: { type: String, required: true },
@@ -16,5 +16,5 @@ const adminSchema = new Schema({
     versionKey: false
 })
 
-const admin = mongoose.model("admin", adminSchema);
-module.exports = admin
+const question = mongoose.model("questions", questionsSchema);
+module.exports = question

@@ -1,11 +1,19 @@
 const express = require("express")
-const admin = require("../model/admin.model")
+const question = require("../model/question.model")
 const router = express.Router()
 
 router.get('/', async (req, res) => {
     try {
-        const docs = await admin.find().sort({ "submit_time": -1 })
-        console.log("get")
+        const docs = await question.find().sort({ "submit_time": -1 })
+        res.send(docs)
+    } catch (error) {
+        res.send(error)
+    }
+})
+
+router.get('/:id', async (req, res) => {
+    try {
+        const docs = await question.findById(req.query.id)
         res.send(docs)
     } catch (error) {
         res.send(error)
@@ -15,9 +23,8 @@ router.get('/', async (req, res) => {
 router.post("/", async (req, res) => {
     try {
         const obj = req.body;
-        console.log(new Date());
         obj.submit_time = new Date();
-        const docs = await admin.create(obj)
+        const docs = await question.create(obj)
         res.send(docs)
     } catch (err) {
         res.send(err)
