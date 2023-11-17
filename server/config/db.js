@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 
-const mongoUrl = process.env.MongoDB_Url
+const mongoUrl = process.env.MONGODB_URL
+console.log("🚀 ~ mongoUrl:", mongoUrl)
 
 mongoose.connect(mongoUrl)
 
