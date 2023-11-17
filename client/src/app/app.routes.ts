@@ -8,7 +8,7 @@ import { AddQuestionComponent } from './add-question/add-question.component';
 export const routes: Routes = [
     { path: "login", component: LoginComponent },
     { path: "add-question", component: AddQuestionComponent },
-    { path: "question", component: QuestionsListComponent },
-    { path: "", redirectTo: "/question", pathMatch: 'full' },
-    { path: "question/:id", component: QuestionComponent }
+    { path: "questions", component: QuestionsListComponent },
+    { path: "", redirectTo: "/questions", pathMatch: 'full' },
+    { path: "questions/:id", component: QuestionComponent }
 ];

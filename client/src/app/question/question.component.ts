@@ -13,7 +13,7 @@ import { AppService } from '../app.service';
   styleUrl: './question.component.css'
 })
 export class QuestionComponent implements OnInit, DoCheck {
-  questions !: Question;
+  questions !: Question[];
   question!: Question;
   count: any;
   left = true;
@@ -25,13 +25,13 @@ export class QuestionComponent implements OnInit, DoCheck {
     this.service.getAllQuestion().subscribe((data) => {
       this.questions = data
       // console.log("🚀 ~ this.questions:", this.questions)
-      this.question = this.questions
+      this.question = this.questions[0]
     })
   }
 
   ngDoCheck(): void {
     this.count = this.route.snapshot.params['id'];
-    // this.question = this.questions[this.count]
+    this.question = this.questions[this.count]
   }
 
 }

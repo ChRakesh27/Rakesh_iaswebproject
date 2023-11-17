@@ -11,8 +11,8 @@ export class AppService {
 
 
 
-  getAllQuestion(): Observable<Question> {
-    return this.httpClient.get<Question>(this.API_HOST + "/questions/");
+  getAllQuestion(): Observable<Question[]> {
+    return this.httpClient.get<Question[]>(this.API_HOST + "/questions/");
   }
 
   addQuestion(data: Question): Observable<Question> {

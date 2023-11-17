@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
 })
 export class QuestionsListComponent implements OnInit {
 
-  questions: Question | undefined;
+  questions: Question[] | undefined;
 
   constructor(private service: AppService) {
 
