@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
 export class QuestionsListComponent implements OnInit {
   questions: Question[] | undefined;
 
-  constructor(private service: AppService) { }
+  constructor(private service: AppService) {}
   ngOnInit(): void {
     this.service.getAllQuestion().subscribe((data) => {
       this.questions = data;

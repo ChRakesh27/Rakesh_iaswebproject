@@ -6,7 +6,7 @@ const fs = require('fs')
 
 router.get('/', async (req, res) => {
     try {
-        const docs = await question.find().sort({ "submit_time": -1 });
+        const docs = await question.find().sort({ "submit_time": -1 }).select({ question: 1 }).exec();
 
         res.send(docs)
     } catch (error) {

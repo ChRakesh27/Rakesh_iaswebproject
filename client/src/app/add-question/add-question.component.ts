@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { AppService } from '../app.service';
 import { RouterLink } from '@angular/router';
 
@@ -16,7 +21,7 @@ export class AddQuestionComponent implements OnInit {
 
   imageBase64!: string;
   selectedFile!: File;
-  constructor(private service: AppService) { }
+  constructor(private service: AppService) {}
 
   ngOnInit(): void {
     this.questionForm = new FormGroup({
@@ -30,26 +35,26 @@ export class AddQuestionComponent implements OnInit {
     });
   }
 
-
   onSelectImg(e: any) {
     if (e.target.files) {
-      this.selectedFile = e.target.files[0]
+      this.selectedFile = e.target.files[0];
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         this.imageBase64 = event.target.result.split(',')[1];
-      }
+      };
     }
   }
 
   submit() {
     if (this.questionForm.valid) {
-      this.service.addQuestion(this.questionForm.value, this.selectedFile).subscribe(() => {
-        console.log("🚀 ~ this.questionForm.value:", this.questionForm.value)
-        // this.questionForm.reset()
-        console.log("🚀 ~ this.questionForm.value:", this.questionForm.value)
-      })
-
+      this.service
+        .addQuestion(this.questionForm.value, this.selectedFile)
+        .subscribe(() => {
+          console.log('🚀 ~ this.questionForm.value:', this.questionForm.value);
+          this.questionForm.reset();
+          console.log('🚀 ~ this.questionForm.value:', this.questionForm.value);
+        });
     }
   }
 }

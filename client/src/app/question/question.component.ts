@@ -18,7 +18,7 @@ export class QuestionComponent implements OnInit {
   constructor(
     private service: AppService,
     private route: ActivatedRoute,
-  ) { }
+  ) {}
   ngOnInit(): void {
     // this.service.getAllQuestion().subscribe((data) => {
     //   this.questions = data;
@@ -27,10 +27,8 @@ export class QuestionComponent implements OnInit {
     this.count = this.route.snapshot.params['id'];
 
     this.service.getQuestionById(this.count).subscribe((data) => {
-      this.question = data
-    })
-
-
+      this.question = data;
+    });
   }
 
   Check(): void {
