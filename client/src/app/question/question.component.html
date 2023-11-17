@@ -1,3 +1,4 @@
+<a [routerLink]="['']">Login</a>
 <section class="vh-100" style="background-color: #508bfc;">
     <div class="container py-5 h-100 ">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -6,28 +7,34 @@
                     <div class="card-body p-5">
 
                         <div class="form-outline mb-4">
-                            <h1>Title</h1>
+                            <h1>{{question?.title}}</h1>
                         </div>
                         <div class="form-outline mb-4">
-                            <h3>Question Text</h3>
+                            <h3>{{question?.question}}</h3>
                         </div>
                         <div class="form-outline mb-4">
-                            <p>Answer</p>
+                            <p>{{question?.answer}}</p>
                         </div>
 
                         <div class="form-outline mb-4">
                             <button>Image</button>
                         </div>
                         <div class="form-outline mb-4">
-                            <small>Subject</small>
+                            <small>{{question?.subject}}</small>
                         </div>
 
                         <div class="form-outline mb-4">
-                            <small>topic</small>
+                            <small>{{question?.topic}}</small>
                         </div>
-                        <button class="btn btn-primary btn-lg btn-block">
+                        @if (true) {
+                        <button class="btn btn-primary btn-lg btn-block" [routerLink]="['/question/',count-1]">
                             < </button>
-                                <button class="btn btn-primary btn-lg btn-block ">></button>
+                                }
+                                @if (true) {
+                                <button class="btn btn-primary btn-lg btn-block "
+                                    [routerLink]="['/question/', +count+1]">></button>
+                                }
+
                     </div>
                 </div>
             </div>

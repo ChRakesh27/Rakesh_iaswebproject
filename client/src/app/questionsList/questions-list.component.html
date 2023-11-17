@@ -1,21 +1,18 @@
 <section class="vh-100" style="background-color: #508bfc;">
     <div class="container py-5 h-100 ">
-        <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="  h-100">
             <div class="col-12 col-md-81 col-lg-16 col-xl-15">
                 <div class="card shadow-2-strong" style="border-radius: 1rem;">
                     <div class="card-body p-5">
+                        <button [routerLink]="[ '/login']" class="btn btn-success mb-2">Login</button>
                         <div class="list-group list-group-light">
-                            <a href="#" class="list-group-item list-group-item-action px-3 border-0 active"
-                                aria-current="true">
-                                The current link item</a>
-                            <a href="#" class="list-group-item list-group-item-action px-3 border-0">A second link
-                                item</a>
-                            <a href="#" class="list-group-item list-group-item-action px-3 border-0">A third link
-                                item</a>
-                            <a href="#" class="list-group-item list-group-item-action px-3 border-0">A fourth link
-                                item</a>
-                            <a class="list-group-item list-group-item-action px-3 border-0 disabled">A disabled link
-                                item</a>
+                            <a class="list-group-item list-group-item-action px-3 border-0 active">
+                                Questions</a>
+                            @for (question of questions; track $index) {
+                            <button [routerLink]="['/question', $index]"
+                                class="list-group-item list-group-item-action px-3 border-0">A
+                                {{question.question}}</button>
+                            }
                         </div>
                     </div>
                 </div>

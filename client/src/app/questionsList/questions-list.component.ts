@@ -2,23 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppService } from '../app.service';
 import { Question } from '../model/question';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-questions-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './questions-list.component.html',
   styleUrl: './questions-list.component.css'
 })
 export class QuestionsListComponent implements OnInit {
-  questions !: Question;
+
+  questions: Question | undefined;
+
   constructor(private service: AppService) {
 
   }
   ngOnInit(): void {
     this.service.getAllQuestion().subscribe((data) => {
-      // this.questions = data
-      console.log("🚀 ~ data:", data)
+      this.questions = data
+      console.log("🚀 ~ this.questions:", this.questions)
+
     })
+
   }
 }
