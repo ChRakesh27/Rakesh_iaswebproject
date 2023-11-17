@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Question } from '../model/question';
@@ -11,26 +11,30 @@ import { AppService } from '../app.service';
   templateUrl: './question.component.html',
   styleUrl: './question.component.css',
 })
-export class QuestionComponent implements OnInit, DoCheck {
+export class QuestionComponent implements OnInit {
   questions!: Question[];
   question!: Question;
   count: any;
-  left = true;
-  right = true;
   constructor(
     private service: AppService,
     private route: ActivatedRoute,
-  ) {}
+  ) { }
   ngOnInit(): void {
-    this.service.getAllQuestion().subscribe((data) => {
-      this.questions = data;
-      // console.log("🚀 ~ this.questions:", this.questions)
-      this.question = this.questions[0];
-    });
+    // this.service.getAllQuestion().subscribe((data) => {
+    //   this.questions = data;
+    // });
+
+    this.count = this.route.snapshot.params['id'];
+
+    this.service.getQuestionById(this.count).subscribe((data) => {
+      this.question = data
+    })
+
+
   }
 
-  ngDoCheck(): void {
-    this.count = this.route.snapshot.params['id'];
-    this.question = this.questions[this.count];
+  Check(): void {
+    // this.count = this.route.snapshot.params['id'];
+    // this.question = this.questions[this.count];
   }
 }

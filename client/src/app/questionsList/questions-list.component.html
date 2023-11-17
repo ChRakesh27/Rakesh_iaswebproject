@@ -15,7 +15,7 @@
               </a>
               @for (question of questions; track $index) {
                 <button
-                  [routerLink]="['/questions', $index]"
+                  [routerLink]="['/questions', question._id]"
                   class="list-group-item list-group-item-action px-3 border-0"
                 >
                   {{ question.question }}
