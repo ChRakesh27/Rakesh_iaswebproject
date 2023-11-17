@@ -8,16 +8,12 @@ import { AppService } from '../app.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './add-question.component.html',
-  styleUrl: './add-question.component.css'
+  styleUrl: './add-question.component.css',
 })
 export class AddQuestionComponent implements OnInit {
-  question !: FormGroup;
+  question!: FormGroup;
 
-  constructor(private service: AppService) {
-
-  }
-
-
+  constructor(private service: AppService) {}
 
   ngOnInit(): void {
     this.question = new FormGroup({
@@ -27,10 +23,8 @@ export class AddQuestionComponent implements OnInit {
       image: new FormControl(null, Validators.required),
       url: new FormControl(null, Validators.required),
       subject: new FormControl(null, Validators.required),
-      topic: new FormControl(null, Validators.required)
-    })
+      topic: new FormControl(null, Validators.required),
+    });
   }
-  submit() {
-
-  }
+  submit() {}
 }

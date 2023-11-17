@@ -3,23 +3,20 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Question } from './model/question';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppService {
-  API_HOST = "http://localhost:3000/api"
-  constructor(private httpClient: HttpClient) { }
-
-
+  API_HOST = 'http://localhost:3000/api';
+  constructor(private httpClient: HttpClient) {}
 
   getAllQuestion(): Observable<Question[]> {
-    return this.httpClient.get<Question[]>(this.API_HOST + "/questions/");
+    return this.httpClient.get<Question[]>(this.API_HOST + '/questions/');
   }
 
   addQuestion(data: Question): Observable<Question> {
-    return this.httpClient.post<Question>(this.API_HOST + "/questions/", data)
+    return this.httpClient.post<Question>(this.API_HOST + '/questions/', data);
   }
   getQuestionById(id: Question): Observable<Question> {
-    return this.httpClient.get<Question>(this.API_HOST + "/questions/" + id);
+    return this.httpClient.get<Question>(this.API_HOST + '/questions/' + id);
   }
-
 }
