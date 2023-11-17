@@ -9,15 +9,17 @@ export class AppService {
   API_HOST = "http://localhost:3000/api"
   constructor(private httpClient: HttpClient) { }
 
+
+
   getAllQuestion(): Observable<Question> {
-    return this.httpClient.get<Question>(this.API_HOST + "/question/");
+    return this.httpClient.get<Question>(this.API_HOST + "/questions/");
   }
 
   addQuestion(data: Question): Observable<Question> {
-    return this.httpClient.post<Question>(this.API_HOST + "/question/", data)
+    return this.httpClient.post<Question>(this.API_HOST + "/questions/", data)
   }
   getQuestionById(id: Question): Observable<Question> {
-    return this.httpClient.get<Question>(this.API_HOST + "/question/" + id);
+    return this.httpClient.get<Question>(this.API_HOST + "/questions/" + id);
   }
 
 }

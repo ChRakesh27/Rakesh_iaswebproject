@@ -1,6 +1,6 @@
 export interface Question {
     _id?: string;
-    title: String;
+    title: string;
     question: string;
     answer: string;
     image?: string;
