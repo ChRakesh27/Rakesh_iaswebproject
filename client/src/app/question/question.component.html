@@ -7,46 +7,52 @@
             <button [routerLink]="['']" class="btn btn-success mb-2">
               back
             </button>
-            <a href="{{ question?.url }}" target="_blank">
+            @if (curQuestion) {
               <div class="form-outline mb-4">
-                <h1>{{ question?.title }}</h1>
+                <h1>{{ curQuestion.title }}</h1>
               </div>
               <div class="form-outline mb-4">
-                <h3>{{ question?.question }}</h3>
+                <h3>{{ curQuestion.question }}</h3>
               </div>
               <div class="form-outline mb-4">
-                <p>{{ question?.answer }}</p>
+                <p>{{ curQuestion.answer }}</p>
               </div>
 
               <div class="form-outline mb-4">
                 <img
-                  src="data:image/jpeg;base64,{{ question?.image }}"
+                  src="data:image/jpeg;base64,{{ curQuestion.image }}"
                   alt="photo"
                 />
               </div>
               <div class="form-outline mb-4">
-                <small>{{ question?.subject }}</small>
+                <small>{{ curQuestion.subject }}</small>
               </div>
 
               <div class="form-outline mb-4">
-                <small>{{ question?.topic }}</small>
+                <small>{{ curQuestion.topic }}</small>
               </div>
+              <div class="d-flex">
+                <button
+                  [disabled]="!preId"
+                  class="btn btn-primary btn-lg btn-block me-2"
+                  [routerLink]="['/questions', preId]"
+                >
+                  <
+                </button>
 
-              <button
-                class="btn btn-primary btn-lg btn-block"
-                [routerLink]="['/questions/', count - 1]"
-              >
-                pre
-              </button>
-
-              <button
-                class="btn btn-primary btn-lg btn-block"
-                [routerLink]="['/questions/', +count + 1]"
-                (click)="Check()"
-              >
-                next
-              </button>
-            </a>
+                <button
+                  [disabled]="!nextId"
+                  class="btn btn-primary btn-lg btn-block ms-2"
+                  [routerLink]="['/questions', nextId]"
+                >
+                  >
+                </button>
+              </div>
+            } @else if (isLoading) {
+              <h3>Loading question</h3>
+            } @else {
+              <h3>Unable to get question</h3>
+            }
           </div>
         </div>
       </div>

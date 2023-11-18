@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppService } from '../app.service';
-import { Question } from '../model/question';
+import { QuestionList } from '../model/question';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -12,9 +12,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './questions-list.component.css',
 })
 export class QuestionsListComponent implements OnInit {
-  questions: Question[] | undefined;
+  questions: QuestionList[] | undefined;
 
-  constructor(private service: AppService) {}
+  constructor(private service: AppService) { }
   ngOnInit(): void {
     this.service.getAllQuestion().subscribe((data) => {
       this.questions = data;

@@ -6,22 +6,17 @@ const fs = require('fs')
 
 router.get('/', async (req, res) => {
     try {
-        const docs = await question.find().sort({ "submit_time": -1 }).select({ question: 1 }).exec();
-
+        if (!req.query.p) {
+        } else {
+            const page = req.query.p
+        }
+        const docs = await question.find().sort({ "submit_time": -1 }).select({ question: 1, url: 1 }).exec();
         res.send(docs)
     } catch (error) {
         res.send(error)
     }
 })
-// router.get('/', async (req, res) => {
-//     try {
-//         const docs = await question.find().sort({ "submit_time": -1 }).skip().limit(1);
-//         console.log("🚀 ~ docs:", docs)
-//         res.send(docs)
-//     } catch (error) {
-//         res.send(error)
-//     }
-// })
+
 
 
 router.get('/:id', async (req, res) => {

@@ -1,5 +1,5 @@
 export interface Question {
-  _id?: string;
+  _id: string;
   title: string;
   question: string;
   answer: string;
@@ -7,4 +7,10 @@ export interface Question {
   url: string;
   subject: string;
   topic: string;
+}
+
+export interface QuestionList {
+  _id: string;
+  question: string;
+  url: string;
 }

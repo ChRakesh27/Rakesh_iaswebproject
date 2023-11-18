@@ -14,12 +14,15 @@
                 Questions
               </a>
               @for (question of questions; track $index) {
-                <button
-                  [routerLink]="['/questions', question._id]"
-                  class="list-group-item list-group-item-action px-3 border-0"
-                >
-                  {{ question.question }}
-                </button>
+                <div class="d-flex">
+                  <button
+                    [routerLink]="['/questions', question._id]"
+                    class="list-group-item list-group-item-action px-3 border-0"
+                  >
+                    {{ question.question }}
+                  </button>
+                  <a href="{{ question?.url }}" target="_blank"> URL </a>
+                </div>
               }
             </div>
           </div>
