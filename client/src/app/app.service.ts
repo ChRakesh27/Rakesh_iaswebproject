@@ -6,8 +6,7 @@ import { Question } from './model/question';
   providedIn: 'root',
 })
 export class AppService {
-  // API_HOST = 'http://localhost:3000/api';
-  API_HOST = 'https://iaswebproject-477a.onrender.com/api';
+  API_HOST = 'https://iaswebproject-45w2.onrender.com/api';
 
   constructor(private httpClient: HttpClient) { }
 

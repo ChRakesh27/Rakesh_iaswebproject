@@ -41,7 +41,11 @@ export class AddQuestionComponent implements OnInit {
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
-        this.imageBase64 = event.target.result.split(',')[1];
+        if (this.selectedFile.size <= 1024 * 1024) {
+          this.imageBase64 = event.target.result.split(',')[1];
+        } else {
+          alert("file size large")
+        };
       };
     }
   }
