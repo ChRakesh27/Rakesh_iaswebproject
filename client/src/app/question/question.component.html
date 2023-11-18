@@ -1,22 +1,22 @@
 <section class="vh-100" style="background-color: #508bfc">
   <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="row justify-content-center align-items-center h-100">
       <div class="col-12 col-md-81 col-lg-16 col-xl-15">
         <div class="card shadow-2-strong" style="border-radius: 1rem">
           <div class="card-body p-5">
-            <button [routerLink]="['']" class="btn btn-success mb-2">
+            <button [routerLink]="['']" class="btn btn-outline-dark mb-2">
               back
             </button>
             @if (curQuestion) {
               <div class="clearfix">
-                <div class="box">
+                <div class="left-box">
                   <div class="form-outline mb-4">
                     <h1>{{ curQuestion.title }}</h1>
                   </div>
                   <div class="form-outline mb-4">
                     <h3>{{ curQuestion.question }}</h3>
                   </div>
-                  <div class="form-outline mb-4">
+                  <div class="form-outline answer mb-4">
                     <p>{{ curQuestion.answer }}</p>
                   </div>
 
@@ -28,16 +28,16 @@
                     <small>{{ curQuestion.topic }}</small>
                   </div>
                 </div>
-                <div class="box">
-                  <div class="form-outline mb-4">
-                    <img
-                      src="data:image/jpeg;base64,{{ curQuestion.image }}"
-                      alt="photo"
-                    />
-                  </div>
+                <div class="right-box">
+                  <img
+                    src="data:image/jpeg;base64,{{ curQuestion.image }}"
+                    alt="photo"
+                    width="300"
+                    height="300"
+                  />
                 </div>
-
-                <div class="d-flex"></div>
+              </div>
+              <div class="d-flex">
                 <button
                   [disabled]="!preId"
                   class="btn btn-primary btn-lg btn-block me-2"
