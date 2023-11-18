@@ -21,7 +21,7 @@ export class AddQuestionComponent implements OnInit {
 
   imageBase64!: string;
   selectedFile!: File;
-  constructor(private service: AppService) {}
+  constructor(private service: AppService) { }
 
   ngOnInit(): void {
     this.questionForm = new FormGroup({
@@ -51,9 +51,9 @@ export class AddQuestionComponent implements OnInit {
       this.service
         .addQuestion(this.questionForm.value, this.selectedFile)
         .subscribe(() => {
-          console.log('🚀 ~ this.questionForm.value:', this.questionForm.value);
+
           this.questionForm.reset();
-          console.log('🚀 ~ this.questionForm.value:', this.questionForm.value);
+
         });
     }
   }
