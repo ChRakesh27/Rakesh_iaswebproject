@@ -42,7 +42,7 @@ export class AddQuestionComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         if (this.selectedFile.size <= 1024 * 1024) {
-          this.imageBase64 = event.target.result.split(',')[1];
+          this.imageBase64 = event.target.result;
         } else {
           alert("file size large")
         };
@@ -51,13 +51,12 @@ export class AddQuestionComponent implements OnInit {
   }
 
   submit() {
+    this.questionForm.patchValue({ image: this.imageBase64 })
     if (this.questionForm.valid) {
       this.service
-        .addQuestion(this.questionForm.value, this.selectedFile)
+        .addQuestion(this.questionForm.value)
         .subscribe(() => {
-
           this.questionForm.reset();
-
         });
     }
   }

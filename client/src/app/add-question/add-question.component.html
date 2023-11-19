@@ -43,13 +43,15 @@
               </div>
 
               <div class="form-outline mb-4">
-                <label class="form-label" for="typeImageX-2">Image</label>
+                <label class="form-label" for="typeImageX-2"
+                  >Image
+                  <small>(size < 1mb)</small>
+                </label>
                 <input
                   type="file"
                   id="typeImageX-2"
                   class="form-control form-control-lg"
                   placeholder="Image"
-                  formControlName="image"
                   (change)="onSelectImg($event)"
                 />
               </div>

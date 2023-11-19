@@ -14,14 +14,10 @@ export class AppService {
     return this.httpClient.get<Question[]>(this.API_HOST + '/questions');
   }
 
-  addQuestion(data: Question, file: any): Observable<Question> {
-    const formData = new FormData();
-    formData.append('que-image', file);
-    formData.append('data', JSON.stringify(data));
-
+  addQuestion(data: Question): Observable<Question> {
     return this.httpClient.post<Question>(
       this.API_HOST + '/questions',
-      formData,
+      data,
     );
   }
 
